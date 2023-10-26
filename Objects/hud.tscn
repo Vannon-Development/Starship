@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://7xnbcd6nou7r"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_7dg6w"]
+
+[node name="HUD" type="Node2D" node_paths=PackedStringArray("speed_label", "speed_slider")]
+script = ExtResource("1_7dg6w")
+speed_label = NodePath("Speed Label")
+speed_slider = NodePath("Speed Slider")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Speed Label" type="Label" parent="."]
+offset_left = -787.0
+offset_top = -495.0
+offset_right = -731.0
+offset_bottom = -469.0
+text = "5 m/s"
+
+[node name="Speed Slider" type="HSlider" parent="."]
+offset_left = -917.0
+offset_top = -491.0
+offset_right = -797.0
+offset_bottom = -475.0
+max_value = 1.0
+step = 0.0
+editable = false
+scrollable = false
+
+[node name="Crosshair" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Crosshair"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-60, -2, -15, -2, -15, 2, -60, 2)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Crosshair"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(60, -2, 15, -2, 15, 2, 60, 2)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Crosshair"]
+color = Color(0.168627, 1, 0, 1)
+polygon = PackedVector2Array(-2, -60, -2, -15, 2, -15, 2, -60)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Crosshair"]
+color = Color(0.168627, 1, 0, 1)
+polygon = PackedVector2Array(-2, 60, -2, 15, 2, 15, 2, 60)

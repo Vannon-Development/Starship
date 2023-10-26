@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt3k4hnq0bgr8"]
+
+[ext_resource type="Script" path="res://Scripts/laser.gd" id="1_r1gev"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehu4i"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 1, 0.0509804, 1)
+emission_enabled = true
+emission = Color(0.482353, 0.980392, 0.305882, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_6qwvn"]
+size = Vector3(0.02, 0.02, 3)
+
+[node name="Player Laser" type="Node3D" node_paths=PackedStringArray("forward_point")]
+script = ExtResource("1_r1gev")
+speed = 80.0
+forward_point = NodePath("Forward")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ehu4i")
+mesh = SubResource("PrismMesh_6qwvn")
+
+[node name="Forward" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

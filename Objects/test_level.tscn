@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm00taoacoa13"]
+
+[ext_resource type="PackedScene" uid="uid://ds12m8ywddl7e" path="res://Objects/target.tscn" id="1_eckv0"]
+
+[node name="Test Level" type="Node3D"]
+
+[node name="Target" parent="." instance=ExtResource("1_eckv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -500)
+
+[node name="Target5" parent="." instance=ExtResource("1_eckv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.7933)
+
+[node name="Target2" parent="." instance=ExtResource("1_eckv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 260.917, -500)
+
+[node name="Target3" parent="." instance=ExtResource("1_eckv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 578.238, 260.917, -500)
+
+[node name="Target4" parent="." instance=ExtResource("1_eckv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 578.238, 260.917, -251.791)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds12m8ywddl7e"]
+
+[ext_resource type="Script" path="res://Scripts/target.gd" id="1_fjg83"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rk4me"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ol1k8"]
+
+[node name="Target" type="CharacterBody3D"]
+collision_mask = 0
+input_ray_pickable = false
+motion_mode = 1
+script = ExtResource("1_fjg83")
+
+[node name="Visual" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rk4me")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ol1k8")

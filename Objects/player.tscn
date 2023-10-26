@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cadgfqfx86tf2"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_0ondy"]
+[ext_resource type="PackedScene" uid="uid://7xnbcd6nou7r" path="res://Objects/hud.tscn" id="1_g4kv4"]
+[ext_resource type="PackedScene" uid="uid://dt3k4hnq0bgr8" path="res://Objects/player_laser.tscn" id="2_wda5h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n6vx8"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("laser_origin", "forward_point", "hud")]
+collision_layer = 0
+collision_mask = 0
+input_ray_pickable = false
+motion_mode = 1
+script = ExtResource("1_0ondy")
+mouse_x_sensitivity = 0.001
+mouse_y_sensitivity = 0.001
+roll_sensitivity = 2.0
+accel = 5.0
+max_vel = 50.0
+speed_sensitivity = 0.25
+laser_origin = [NodePath("Right Fire"), NodePath("Left Fire")]
+forward_point = NodePath("Forward Point")
+hud = NodePath("HUD")
+laser = ExtResource("2_wda5h")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 30.0
+
+[node name="HUD" parent="." instance=ExtResource("1_g4kv4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_n6vx8")
+
+[node name="Forward Point" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Right Fire" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="Left Fire" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
