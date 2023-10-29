@@ -26,7 +26,6 @@ func _test_hit(motion: Vector3) -> bool:
 	if result: 
 		@warning_ignore("unsafe_method_access")
 		result.collider.laser_hit()
-		print(result)
 		return true
 	
 	return false

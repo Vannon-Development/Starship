@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbff2ujhi3hxe"]
+
+[ext_resource type="Script" path="res://Scripts/radar.gd" id="1_p4ur0"]
+[ext_resource type="Texture2D" uid="uid://bgmiynmmh1y8p" path="res://Art/circle.png" id="1_urvc0"]
+
+[node name="Radar" type="Node2D" node_paths=PackedStringArray("front_visual", "back_visual")]
+script = ExtResource("1_p4ur0")
+front_visual = NodePath("Front")
+back_visual = NodePath("Back")
+
+[node name="Front" type="Sprite2D" parent="."]
+position = Vector2(300, 244)
+texture = ExtResource("1_urvc0")
+
+[node name="Back" type="Sprite2D" parent="."]
+position = Vector2(1594, 244)
+texture = ExtResource("1_urvc0")

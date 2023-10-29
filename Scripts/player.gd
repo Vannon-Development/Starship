@@ -13,6 +13,7 @@ extends CharacterBody3D
 @export var laser_origin: Array[Marker3D]
 @export_category("Internal Links")
 @export var forward_point: Marker3D
+@export var up_point: Marker3D
 @export var hud: HUD
 @export_category("Scene Links")
 @export var laser: PackedScene
@@ -25,6 +26,7 @@ var _fire_index: int
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	hud.player = self
 
 func _process(delta: float):
 	_speed_control = clampf(_speed_control + Input.get_axis("Accel Down", "Accel Up") * delta * speed_sensitivity, 0, 1)

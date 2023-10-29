@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://7xnbcd6nou7r"]
+[gd_scene load_steps=3 format=3 uid="uid://7xnbcd6nou7r"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_7dg6w"]
+[ext_resource type="PackedScene" uid="uid://cbff2ujhi3hxe" path="res://Objects/radar.tscn" id="2_55odd"]
 
-[node name="HUD" type="Node2D" node_paths=PackedStringArray("speed_label", "speed_slider")]
+[node name="HUD" type="Node2D" node_paths=PackedStringArray("speed_label", "speed_slider", "radar")]
 script = ExtResource("1_7dg6w")
 speed_label = NodePath("Speed Label")
 speed_slider = NodePath("Speed Slider")
+radar = NodePath("Radar")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -43,3 +45,6 @@ polygon = PackedVector2Array(-2, -60, -2, -15, 2, -15, 2, -60)
 [node name="Polygon2D4" type="Polygon2D" parent="Crosshair"]
 color = Color(0.168627, 1, 0, 1)
 polygon = PackedVector2Array(-2, 60, -2, 15, 2, 15, 2, 60)
+
+[node name="Radar" parent="." instance=ExtResource("2_55odd")]
+position = Vector2(-960, -540)

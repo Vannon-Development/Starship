@@ -6,7 +6,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n6vx8"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("laser_origin", "forward_point", "hud")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("laser_origin", "forward_point", "up_point", "hud")]
 collision_layer = 0
 collision_mask = 0
 input_ray_pickable = false
@@ -20,19 +20,24 @@ max_vel = 50.0
 speed_sensitivity = 0.25
 laser_origin = [NodePath("Right Fire"), NodePath("Left Fire")]
 forward_point = NodePath("Forward Point")
+up_point = NodePath("Up Point")
 hud = NodePath("HUD")
 laser = ExtResource("2_wda5h")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 fov = 30.0
 
-[node name="HUD" parent="." instance=ExtResource("1_g4kv4")]
+[node name="HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_g4kv4")]
+player = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_n6vx8")
 
 [node name="Forward Point" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Up Point" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Right Fire" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)

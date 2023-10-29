@@ -4,12 +4,15 @@ extends Node2D
 @export_category("Internal Items")
 @export var speed_label: Label
 @export var speed_slider: HSlider
+@export var radar: Radar
+@export var player: Player
 
 var speed: float
 var speed_control: float
 
 func _ready():
 	speed = 0
+	radar.player = player
 	_update_visual()
 
 func _process(_delta):

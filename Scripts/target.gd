@@ -1,5 +1,5 @@
 class_name Target
-extends Node3D
+extends RadarScan
 
 func laser_hit():
 	queue_free()
